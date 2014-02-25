@@ -1,0 +1,31 @@
+THE PROBLEM:
+
+I give you a set of sorted lists, like:
+ [1, 10, 100]
+ [1, 2, 6, 20]
+ [4]
+ [40, 44, 45, 50, 60]
+
+I want you to give me back a set of sorted Sums.  Each Sum is composed of
+one item from each list.  The first few you might give me are
+ 46 # 1+1+4+40
+ 47 # 1+2+4+40
+ 50 # 1+1+4+44
+ 51 # 1+6+4+40
+
+The total number of sums you'll hand back is the product of the length of
+all the lists (3*4*1*5=60 in the above example).
+
+Constraints:
+ - I am showing these results to web users one page at a time, and the users
+   will rarely paginate deeply or at all.  So
+   - I want to be able to get a few results without waiting for all results
+     to be calculated
+   - I want to be able to pick up from where I left off, perhaps minutes later
+
+How do you do it?  How efficient in time and space can you make it?
+
+THE SOLUTION:
+
+sumsort.py has the solution.  But you may want to play around yourself before
+peeking at the answer.

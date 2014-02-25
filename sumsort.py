@@ -14,26 +14,6 @@ queue to track our progress through the N-dimensional landscape.
 # However, it may be more efficient to keep a set.
 
 
-class MinPriorityQueue(object):
-    """Stub priority queue to implement sorted_sums.  Works, but is
-    inefficient for insertion."""
-    def __init__(self):
-        self.items = []
-    def empty(self):
-        return not bool(self.items)
-    def pop(self):
-        return self.items.pop() # from end of list
-    def push(self, value):
-        for i, x in enumerate(self.items):
-            if value > x:
-                self.items.insert(i, value)
-                break
-            if value == x:
-                return
-        else:
-            self.items.append(value)
-
-
 def sorted_sums(lists, pq):
     """
     Yields the sorted sums of items from each list in |lists|.
@@ -73,6 +53,26 @@ def sorted_sums(lists, pq):
         yield (total, coords)
         for next_step in next_steps_from(coords):
             pq.push(itemAt(next_step))
+
+
+class MinPriorityQueue(object):
+    """Stub priority queue to implement sorted_sums.  Works, but is
+    inefficient for insertion."""
+    def __init__(self):
+        self.items = []
+    def empty(self):
+        return not bool(self.items)
+    def pop(self):
+        return self.items.pop() # from end of list
+    def push(self, value):
+        for i, x in enumerate(self.items):
+            if value > x:
+                self.items.insert(i, value)
+                break
+            if value == x:
+                return
+        else:
+            self.items.append(value)
 
 
 def tests():
